@@ -32,16 +32,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // These are the default values as strings
   String result = '0';
   String input = '0';
   String expression = '';
-  // This is a function used on the buttons that takes the current button text
-  // and uses it as an input to perform calculations
-  currentButton(String buttonText) {
-    // setState updates the UI
+
+  computeInput(String buttonText) {
     setState(() {
-      //
       if (buttonText == 'DEL') {
         input = input.substring(0, input.length - 1);
         if (input == '') {
@@ -90,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         focusElevation: 1.0,
         highlightElevation: 0.0,
         onPressed: () {
-          currentButton(buttonText);
+          computeInput(buttonText);
         },
       ),
     );
@@ -175,10 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Expanded(
-                child: Divider(
-                  height: 1,
-                  color: Colors.white,
-                ),
+                child: Divider(height: 1, color: Colors.white),
               ),
               Container(
                 decoration: BoxDecoration(
