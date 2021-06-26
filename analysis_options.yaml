@@ -1,0 +1,22 @@
+include: package:lint/analysis_options.yaml
+
+analyzer:
+
+linter:
+  rules:
+
+    avoid_classes_with_only_static_members: false
+
+    avoid_function_literals_in_foreach_calls: false
+
+    always_put_required_named_parameters_first: false
+
+    sort_constructors_first: true
+
+    prefer_single_quotes: true
+
+    public_member_api_docs: false
+
+    always_specify_types: true
+
+    lines_longer_than_80_chars: false
