@@ -1,7 +1,10 @@
 part of ui;
 
 class NumPadRow extends StatelessWidget {
-  const NumPadRow({Key? key, required this.children}) : super(key: key);
+  const NumPadRow({
+    Key? key,
+    required this.children,
+  }) : super(key: key);
 
   final List<Widget> children;
 
@@ -14,8 +17,11 @@ class NumPadRow extends StatelessWidget {
   }
 }
 
-List<Widget> numPadRow = const <Widget>[
+const String _numPadKey = 'num-pad-row';
+
+List<Widget> numPadRows = const <Widget>[
   NumPadRow(
+    key: Key('$_numPadKey-1'),
     children: <CalculaterButton>[
       CalculaterButton('0'),
       CalculaterButton('.'),
@@ -24,6 +30,7 @@ List<Widget> numPadRow = const <Widget>[
     ],
   ),
   NumPadRow(
+    key: Key('$_numPadKey-2'),
     children: <CalculaterButton>[
       CalculaterButton('1'),
       CalculaterButton('2'),
@@ -32,6 +39,7 @@ List<Widget> numPadRow = const <Widget>[
     ],
   ),
   NumPadRow(
+    key: Key('$_numPadKey-3'),
     children: <CalculaterButton>[
       CalculaterButton('4'),
       CalculaterButton('5'),
@@ -40,6 +48,7 @@ List<Widget> numPadRow = const <Widget>[
     ],
   ),
   NumPadRow(
+    key: Key('$_numPadKey-4'),
     children: <CalculaterButton>[
       CalculaterButton('7'),
       CalculaterButton('8'),
@@ -48,6 +57,7 @@ List<Widget> numPadRow = const <Widget>[
     ],
   ),
   NumPadRow(
+    key: Key('$_numPadKey-5'),
     children: <CalculaterButton>[
       CalculaterButton('%'),
       CalculaterButton('AC'),

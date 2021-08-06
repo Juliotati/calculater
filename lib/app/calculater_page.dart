@@ -1,6 +1,5 @@
 part of app;
 
-
 class CalculaterPage extends StatefulWidget {
   const CalculaterPage();
 
@@ -27,7 +26,7 @@ class _CalculaterPageState extends State<CalculaterPage> {
           mainAxisSize: MainAxisSize.min,
           verticalDirection: VerticalDirection.up,
           children: <Widget>[
-            for (int row = 0; row < numPadRow.length; row++) numPadRow[row],
+            ...numPad(),
             const SizedBox(height: 13),
             const ResultText(),
             const Expanded(
