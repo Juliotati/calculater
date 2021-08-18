@@ -6,11 +6,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    Calculater(),
+    const Calculater(),
   );
 }
 
 class Calculater extends StatelessWidget {
+  const Calculater();
   @override
   Widget build(BuildContext context) {
     return ListenableProvider<CalculaterHelper>(
