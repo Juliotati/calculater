@@ -20,23 +20,25 @@ class _CalculaterPageState extends State<CalculaterPage> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(bottom: 16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          verticalDirection: VerticalDirection.up,
-          children: <Widget>[
-            ...numPad(),
-            const SizedBox(height: 13),
-            const ResultText(),
-            const Expanded(
-              child: Divider(
-                height: 1,
-                color: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            verticalDirection: VerticalDirection.up,
+            children: <Widget>[
+              ...numPad(),
+              const SizedBox(height: 13),
+              const ResultText(),
+              const Expanded(
+                child: Divider(
+                  height: 1,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            const InputText(),
-          ],
+              const InputText(),
+            ],
+          ),
         ),
       ),
     );
