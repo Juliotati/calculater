@@ -23,7 +23,7 @@ class CalculaterButton extends StatelessWidget {
         disabledElevation: 2.0,
         focusElevation: 1.0,
         highlightElevation: 0.0,
-        onPressed: () => context.watch<CalculaterHelper>().computeInput(label),
+        onPressed: () => context.read<CalculaterHelper>().computeInput(label),
         child: Text(
           label,
           style: const TextStyle(

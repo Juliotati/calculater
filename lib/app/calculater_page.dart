@@ -11,7 +11,7 @@ class _CalculaterPageState extends State<CalculaterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: const Color(0xFFFAFAFA),
       appBar: AppBar(
         title: Center(
           child: Text(
@@ -20,24 +20,15 @@ class _CalculaterPageState extends State<CalculaterPage> {
           ),
         ),
       ),
-      body: Padding(
+      body: ListView(
         padding: const EdgeInsets.only(bottom: 16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          verticalDirection: VerticalDirection.up,
-          children: <Widget>[
-            ...numPad(),
-            const SizedBox(height: 13),
-            const ResultText(),
-            const Expanded(
-              child: Divider(
-                height: 1,
-                color: Colors.white,
-              ),
-            ),
-            const InputText(),
-          ],
-        ),
+        children: <Widget>[
+          const InputText(),
+          const ResultText(),
+          const SizedBox(height: 13),
+          const SizedBox(height: 16),
+          ...numPad(),
+        ],
       ),
     );
   }
