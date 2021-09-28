@@ -43,8 +43,8 @@ class CalculaterHelper with ChangeNotifier {
     expression = expression.replaceAll('X', '*');
     expression = expression.replaceAll('%', '⁒');
 
-    final Parser p = Parser();
-    final Expression exp = p.parse(expression);
+    final Parser parser = Parser();
+    final Expression exp = parser.parse(expression);
     final ContextModel cm = ContextModel();
 
     result = '${exp.evaluate(EvaluationType.REAL, cm)}';
