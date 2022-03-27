@@ -1,33 +1,23 @@
 part of app;
 
-class CalculaterPage extends StatefulWidget {
+class CalculaterPage extends StatelessWidget {
   const CalculaterPage();
 
-  @override
-  _CalculaterPageState createState() => _CalculaterPageState();
-}
-
-class _CalculaterPageState extends State<CalculaterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFAFAFA),
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'calculater',
-            style: GoogleFonts.graduate(),
-          ),
-        ),
+        centerTitle: true,
+        title: const Text('calculater'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.only(bottom: 16.0),
+      body: Column(
         children: <Widget>[
           const InputText(),
           const ResultText(),
-          const SizedBox(height: 13),
-          const SizedBox(height: 16),
-          ...numPad(),
+          const Spacer(),
+          ...numPad,
+          const SizedBox(height: 50),
         ],
       ),
     );

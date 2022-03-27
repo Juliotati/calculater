@@ -1,7 +1,7 @@
 part of ui;
 
-List<Widget> numPad() {
+List<Widget> get numPad {
   return <Widget>[
-    for (int row = 0; row <= numPadRows.length - 1; row++) numPadRows[row]
+    for (final Widget row in numPadRows) row,
   ];
 }

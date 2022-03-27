@@ -10,9 +10,9 @@ class NumPadRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: children,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Row(children: children),
     );
   }
 }
@@ -23,19 +23,19 @@ List<Widget> numPadRows = const <Widget>[
   NumPadRow(
     key: Key('$_numPadKey-1'),
     children: <CalculaterButton>[
-      CalculaterButton('0'),
-      CalculaterButton('.'),
       CalculaterButton('Ans'),
-      CalculaterButton('='),
+      CalculaterButton('AC'),
+      CalculaterButton('DEL'),
+      CalculaterButton('/'),
     ],
   ),
   NumPadRow(
     key: Key('$_numPadKey-2'),
     children: <CalculaterButton>[
-      CalculaterButton('1'),
-      CalculaterButton('2'),
-      CalculaterButton('3'),
-      CalculaterButton('-'),
+      CalculaterButton('7'),
+      CalculaterButton('8'),
+      CalculaterButton('9'),
+      CalculaterButton('X'),
     ],
   ),
   NumPadRow(
@@ -50,19 +50,18 @@ List<Widget> numPadRows = const <Widget>[
   NumPadRow(
     key: Key('$_numPadKey-4'),
     children: <CalculaterButton>[
-      CalculaterButton('7'),
-      CalculaterButton('8'),
-      CalculaterButton('9'),
-      CalculaterButton('X'),
+      CalculaterButton('1'),
+      CalculaterButton('2'),
+      CalculaterButton('3'),
+      CalculaterButton('-'),
     ],
   ),
   NumPadRow(
     key: Key('$_numPadKey-5'),
-    children: <CalculaterButton>[
-      CalculaterButton('%'),
-      CalculaterButton('AC'),
-      CalculaterButton('DEL'),
-      CalculaterButton('/'),
+    children: <Widget>[
+      CalculaterButton('0'),
+      CalculaterButton('.'),
+      CalculaterButton('=', flex: 2),
     ],
   ),
 ];

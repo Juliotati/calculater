@@ -10,26 +10,17 @@ class InputText extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: Colors.blueGrey[200],
       ),
-      margin: const EdgeInsets.all(10.0),
       width: double.infinity,
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 15.0,
-            bottom: 8.0,
-            left: 10.0,
-            right: 20,
-          ),
-          child: Consumer<CalculaterHelper>(
-            builder: (_, CalculaterHelper helper, __) {
-              return Text(
-                helper.defaultInput,
-                style: const TextStyle(fontSize: 25),
-              );
-            },
-          ),
-        ),
+      alignment: Alignment.centerLeft,
+      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      child: Consumer<CalculaterHelper>(
+        builder: (_, CalculaterHelper helper, __) {
+          return Text(
+            helper.defaultInput,
+            style: const TextStyle(fontSize: 25),
+          );
+        },
       ),
     );
   }
