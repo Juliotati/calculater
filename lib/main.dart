@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'package:calculater/UI/ui.dart';
 import 'package:calculater/app/app.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
