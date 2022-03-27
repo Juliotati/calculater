@@ -1,8 +1,12 @@
 part of app;
 
 class CalculaterHelper with ChangeNotifier {
-  String result = '0';
-  String defaultInput = '0';
+  static String _formattedNum(String input, int decimal) {
+    return double.parse(input).toStringAsFixed(decimal);
+  }
+
+  String result = _formattedNum('0', 0);
+  String defaultInput = _formattedNum('0', 0);
   String expression = '';
 
   void computeInput(String userInput) {
@@ -15,7 +19,7 @@ class CalculaterHelper with ChangeNotifier {
     } else if (userInput == 'Ans') {
       _continueFromAnswer();
     } else {
-      if (defaultInput == '0') {
+      if (defaultInput == _formattedNum('0', 0)) {
         defaultInput = userInput;
       } else {
         defaultInput = defaultInput + userInput;
@@ -30,8 +34,8 @@ class CalculaterHelper with ChangeNotifier {
   }
 
   void _reset() {
-    defaultInput = '0';
-    result = '0';
+    defaultInput = _formattedNum('0', 0);
+    result = _formattedNum('0', 0);
   }
 
   void _continueFromAnswer() {
@@ -43,10 +47,35 @@ class CalculaterHelper with ChangeNotifier {
     expression = expression.replaceAll('X', '*');
     expression = expression.replaceAll('%', '⁒');
 
-    final Parser parser = Parser();
-    final Expression exp = parser.parse(expression);
-    final ContextModel cm = ContextModel();
+    final Parser _parser = Parser();
+    final Expression _exp = _parser.parse(expression);
+    final ContextModel _contextModel = ContextModel();
 
-    result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+    final String _result =
+        '${_exp.evaluate(EvaluationType.REAL, _contextModel)}';
+
+    return _formatFinalResult(_result);
+  }
+
+  void _formatFinalResult(String _result) {
+    if (_result.contains('.')) {
+      final int _decimalLength = _result.split('.').last.characters.length;
+      final String _decimals = _result.split('.').last;
+
+      if (_decimalLength == 1 && _decimals == '0') {
+        result = _formattedNum(_result, 0);
+        return;
+      }
+
+      if (_decimalLength == 1 && _decimals != '0') {
+        result = _formattedNum(_result, 1);
+        return;
+      }
+
+      if (_decimalLength >= 2) {
+        result = _formattedNum(_result, 2);
+        return;
+      }
+    }
   }
 }
