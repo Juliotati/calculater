@@ -15,9 +15,11 @@ class CalculaterPage extends StatelessWidget {
         children: <Widget>[
           const InputText(),
           const ResultText(),
-          const Spacer(),
-          ...numPad,
-          const SizedBox(height: 50),
+          Flexible(
+            child: ListView(
+              children: numPad,
+            ),
+          ),
         ],
       ),
     );
